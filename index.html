@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinQuest - Aventura Financiera</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Pantalla de carga -->
+  <div id="loader" class="loader">
+    <div class="coin-loader">🪙</div>
+    <p>Cargando CoinQuest...</p>
+  </div>
+
+  <!-- Pantalla principal mejorada -->
+  <section id="perfil" class="screen active">
+    <div class="floating-coins">🪙🪙🪙</div>
+    <div class="card welcome-card">
+      <h1 class="game-title">🌟 CoinQuest 🌟</h1>
+      <p class="subtitle">Aprende a ganar, ahorrar e invertir</p>
+      
+      <form id="perfilForm" class="perfil-form">
+        <div class="input-group">
+          <label>Tu nombre</label>
+          <input type="text" id="nombre"  required>
+        </div>
+        
+        <div class="input-group">
+          <label>Tu edad</label>
+          <input type="number" id="edad"  min="5" max="100" required>
+        </div>
+        
+        <div class="input-group">
+          <label>Tu meta</label>
+          <select id="meta" required>
+            <option value="">Selecciona...</option>
+            <option value="ahorrar">Ahorrar </option>
+            <option value="emprender"> Emprender </option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn btn-large btn-primary">
+          Comenzar Aventura
+        </button>
+      </form>
+      
+      <div class="decorative-elements">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pantalla de juego -->
+  <section id="juego" class="screen">
+    <!-- Header del juego -->
+    <header class="game-header">
+      <div class="header-top">
+        <h1 class="game-title-small">CoinQuest</h1>
+        <button id="menuBtn" class="btn-icon" onclick="showMenuModal()">🏠</button>
+      </div>
+      
+      <div class="player-stats">
+        <div class="stat-card">
+          <span class="stat-icon">👤</span>
+          <span id="playerInfo" class="stat-text"></span>
+        </div>
+        
+        <div class="stat-card coin-display">
+          <span class="stat-icon">🪙</span>
+          <span id="coins">0</span>
+          <span class="stat-label">QuestCoins</span>
+        </div>
+      </div>
+      
+      <div class="level-progress">
+        <div class="level-badge">
+          <span id="currentLevel">1</span>/7
+        </div>
+        <div id="progressBar" class="progress-bar">
+          <div id="progress" class="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Área del desafío -->
+    <main id="challengeArea" class="challenge-area card"></main>
+    
+    <!-- AI Coach (simulado) -->
+    <div id="coach" class="coach-message">
+      <div class="coach-avatar">🤖</div>
+      <div class="coach-text">¡Bienvenido a CoinQuest! Completa desafíos para ganar monedas.</div>
+    </div>
+  </section>
+
+  <!-- Modal de Menú -->
+  <div id="menuModal" class="modal">
+    <div class="modal-content">
+      <h2>⏸️ Pausa</h2>
+      <button class="btn btn-large btn-secondary" onclick="resumeGame()">
+        ▶️ Continuar
+      </button>
+      <button class="btn btn-large btn-secondary" onclick="goToMenu()">
+        🏠 Menú Principal
+      </button>
+      <button class="btn btn-large btn-danger" onclick="closeModal()">
+        ❌ Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Nivel Completado -->
+  <div id="levelCompleteModal" class="modal">
+    <div class="modal-content celebration">
+      <h2>Nivel Completado</h2>
+      <p id="levelCompleteMessage"></p>
+      <p id="coinsEarnedMessage" class="coins-earned"></p>
+      
+      <div class="button-grid">
+        <button class="btn btn-large btn-secondary" onclick="repeatLevel()">
+          🔄 Repetir Nivel
+        </button>
+        <button class="btn btn-large btn-primary" onclick="nextLevel()">
+          ⏩ Siguiente Nivel
+        </button>
+        <button class="btn btn-large btn-secondary" onclick="goToMenu()">
+          🏠 Menú
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Micro Fund -->
+  <div id="microFundModal" class="modal">
+    <div class="modal-content special">
+      <div class="confetti">🎉🎉🎉</div>
+      <h2>MICRO FUND DESBLOQUEADO</h2>
+      <p id="fundMessage"></p>
+      <p class="special-text">Felicidades Has demostrado ser un excelente administrador.</p>
+      
+      <button class="btn btn-large btn-special" onclick="applyMicroFund()">
+        Apply for Micro Fund
+      </button>
+      <button class="btn btn-large btn-secondary" onclick="closeModal()">
+        Seguir Jugando
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Gastar Monedas -->
+  <div id="spendModal" class="modal">
+    <div class="modal-content">
+      <h2>Oferta Especial</h2>
+      <p>¿Quieres gastar 30 monedas para obtener una pista?</p>
+      <div class="button-grid">
+        <button class="btn btn-large btn-primary" onclick="spendCoins(30, 'hint')">
+          Comprar Pista
+        </button>
+        <button class="btn btn-large btn-secondary" onclick="closeModal()">
+          No, gracias
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
