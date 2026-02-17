@@ -1,4 +1,3 @@
-// Variables globales
 let coins = 0;
 let currentLevel = 1;
 let playerName = "";
@@ -8,7 +7,6 @@ let challengesCompleted = 0;
 let currentChallengeIndex = 0;
 let levelCompleted = false;
 
-// Niveles configurables
 const LEVELS = {
   1: { name: "Aprendiz de Ahorro", coins: 40, challenges: 5 },
   2: { name: "Explorador de Gastos", coins: 60, challenges: 5 },
@@ -19,7 +17,7 @@ const LEVELS = {
   7: { name: "Magnate Financiero", coins: 160, challenges: 5 }
 };
 
-// Base de datos de preguntas por nivel
+
 const CHALLENGES = {
   1: [
     {
@@ -345,7 +343,6 @@ const CHALLENGES = {
   ]
 };
 
-// Inicializacion
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     const loader = document.getElementById('loader');
@@ -751,21 +748,21 @@ function repeatLevel() {
 }
 
 function mostrarPantallaFinal() {
-  // Cuando termina el nivel 7, mostramos la pantalla final segun monedas
+
   const modal = document.getElementById("microFundModal");
   const fundMessage = document.getElementById("fundMessage");
   
   if (!modal || !fundMessage) return;
   
   if (coins >= 1000) {
-    // Cumplio la meta
+   
     fundMessage.innerHTML = `
       Felicidades ${playerName}<br>
       <span style="font-size: 2rem; display: block; margin: 15px 0;">${coins} monedas</span>
       Has alcanzado la meta de 1000 monedas.
     `;
     
-    // Personalizar el modal para exito
+   
     modal.innerHTML = `
       <div class="modal-content special" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
         <h2 style="color: white; font-size: 2rem;">Meta Cumplida</h2>
@@ -780,14 +777,13 @@ function mostrarPantallaFinal() {
       </div>
     `;
   } else {
-    // No cumplio la meta
     fundMessage.innerHTML = `
       Lo siento ${playerName}<br>
       <span style="font-size: 2rem; display: block; margin: 15px 0;">${coins} monedas</span>
       No alcanzaste la meta de 1000 monedas.
     `;
     
-    // Personalizar el modal para fracaso
+  
     modal.innerHTML = `
       <div class="modal-content" style="background: linear-gradient(135deg, #f44336, #d32f2f);">
         <h2 style="color: white; font-size: 2rem;">Meta no cumplida</h2>
