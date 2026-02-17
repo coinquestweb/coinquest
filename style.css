@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Loader */
+
 .loader {
   position: fixed;
   top: 0;
@@ -54,7 +54,6 @@ body {
   display: block;
 }
 
-/* Cards */
 .card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 30px;
@@ -70,7 +69,7 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-/* Welcome Card */
+
 .welcome-card {
   max-width: 500px;
   margin: 40px auto;
@@ -110,7 +109,6 @@ body {
   100% { transform: translateX(100vw) rotate(360deg); }
 }
 
-/* Forms */
 .input-group {
   margin-bottom: 20px;
   text-align: left;
@@ -142,7 +140,6 @@ body {
   box-shadow: 0 0 20px rgba(118, 75, 162, 0.3);
 }
 
-/* Buttons */
 .btn {
   border: none;
   padding: 15px 30px;
@@ -215,7 +212,6 @@ body {
   color: white;
 }
 
-/* Game Header */
 .game-header {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 30px;
@@ -237,7 +233,6 @@ body {
   margin: 0;
 }
 
-/* Stats */
 .player-stats {
   display: flex;
   justify-content: space-between;
@@ -274,7 +269,6 @@ body {
   font-weight: 700;
 }
 
-/* Progress Bar */
 .level-progress {
   display: flex;
   align-items: center;
@@ -323,7 +317,6 @@ body {
   100% { transform: translateX(100%); }
 }
 
-/* Challenge Area */
 .challenge-area {
   min-height: 300px;
   display: flex;
@@ -343,7 +336,6 @@ body {
   line-height: 1.6;
 }
 
-/* Coach Message */
 .coach-message {
   background: white;
   border-radius: 30px;
@@ -378,7 +370,6 @@ body {
   font-style: italic;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -431,7 +422,6 @@ body {
   margin-top: 30px;
 }
 
-/* Coins earned message */
 .coins-earned {
   font-size: 2rem;
   font-weight: 700;
@@ -439,13 +429,11 @@ body {
   animation: bounce 1s infinite;
 }
 
-/* Confetti */
 .confetti {
   font-size: 3rem;
   animation: spin 2s infinite;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .game-title {
     font-size: 2rem;
